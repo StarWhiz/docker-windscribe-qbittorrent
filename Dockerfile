@@ -3,7 +3,7 @@
 FROM wiorca/docker-windscribe:latest
 
 # Version
-ARG VERSION=0.0.1
+ARG VERSION=0.0.2
 
 # Expose the webadmin port for qBittorrent
 EXPOSE 8080/tcp
