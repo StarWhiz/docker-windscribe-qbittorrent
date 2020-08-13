@@ -67,7 +67,7 @@ services:
       - /location/on/host:/data
     ports:
       - 8080:8080
-    capabilities:
+    cap-add:
       - NET_ADMIN
     restart: unless-stopped
 ```
