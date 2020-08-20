@@ -18,7 +18,7 @@ Here are some example snippets to help you get started creating a container.
 
 ```
 docker create \
-  --name=docker-windscribe \
+  --name=docker-windscribe-qbittorrent \
   -e PUID=1000 \
   -e PGID=1000 \
   -e TZ=America/New_York \
@@ -32,10 +32,12 @@ docker create \
   -e WINDSCRIBE_FIREWALL=on \
   -v /location/on/host:/config \
   -v /location/elsewhere:/data \
+  --dns 8.8.8.8 \
+  --dns 10.255.255.1 \
   -p 8080:8080 \
   --cap-add NET_ADMIN \
   --restart unless-stopped \
-  wiorca/docker-windscribe
+  wiorca/docker-windscribe-qbittorrent
 ```
 
 
@@ -47,9 +49,9 @@ Compatible with docker-compose schemas.
 ---
 version: "2.1"
 services:
-  docker-windscribe:
-    image: wiorca/docker-windscribe
-    container_name: docker-windscribe
+  docker-windscribe-qbittorrent:
+    image: wiorca/docker-windscribe-qbittorrent
+    container_name: docker-windscribe-qbittorrent
     environment:
       - PUID=1000
       - PGID=1000
@@ -67,6 +69,9 @@ services:
       - /location/on/host:/data
     ports:
       - 8080:8080
+    dns:
+      - 8.8.8.8
+      - 10.255.255.1
     cap-add:
       - NET_ADMIN
     restart: unless-stopped
@@ -99,7 +104,7 @@ The following parameters are inhereted from the parent container:
 | Volume | Example | Function |
 | :----: | --- | --- |
 | /config | /opt/docker/docker-windscribe | The home directory of docker_user, and where configuration files will live (inhereted from parent)|
-| /data | /opt/docker/docker-windscribe-data | The location where data should be stored |
+| /data | /opt/docker/docker-windscribe-qbittorrent-data | The location where data should be stored |
 
 ## Below are the instructions for updating containers:
 
