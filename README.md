@@ -35,7 +35,6 @@ docker create \
   -v /location/on/host:/config \
   -v /location/elsewhere:/data \
   --dns 8.8.8.8 \
-  --dns 10.255.255.1 \
   -p 8080:8080 \
   --cap-add NET_ADMIN \
   --restart unless-stopped \
@@ -73,7 +72,6 @@ services:
       - 8080:8080
     dns:
       - 8.8.8.8
-      - 10.255.255.1
     cap-add:
       - NET_ADMIN
     restart: unless-stopped
