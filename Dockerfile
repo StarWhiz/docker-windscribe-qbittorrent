@@ -1,5 +1,5 @@
 
-# Based on Ubuntu 20.04 LTS
+# Based on wiorca/docker-windscribe
 FROM wiorca/docker-windscribe:latest
 
 # Version
