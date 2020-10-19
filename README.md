@@ -72,7 +72,7 @@ services:
       - 8080:8080
     dns:
       - 8.8.8.8
-    cap-add:
+    cap_add:
       - NET_ADMIN
     restart: unless-stopped
 ```
